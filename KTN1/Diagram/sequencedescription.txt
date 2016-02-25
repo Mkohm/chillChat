@@ -1,0 +1,17 @@
+server startserver(); - allow incoming connections
+client run();
+client connect();
+
+server clienthandler();
+server listen for request();
+
+client reads user input
+client create JSON object from user input
+client send json object
+
+clienthandler receives message
+clienthandler sends response to client
+messagereceiver sends json object to client
+messageparser parses the response (if neccessary)
+(messageparser sends message as a string to receiving lient)
+receiving client prints message
