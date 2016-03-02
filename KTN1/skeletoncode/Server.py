@@ -35,6 +35,8 @@ class ClientHandler(SocketServer.BaseRequestHandler):
             if received_string != "" or not received_string == None:
                 print self.ip + ": " + received_string
                 self.connection.send("SERVER: "+received_string)
+                for key,value in dict.items():
+                    value.send("Back: "+received_string)
 
 
 
