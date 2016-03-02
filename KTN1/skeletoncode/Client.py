@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 import socket
-from threading import Thread
 from MessageReceiver import MessageReceiver
 from MessageParser import MessageParser
-
 
 # This is the chat client class
 class Client:
@@ -50,6 +48,6 @@ if __name__ == '__main__':
     client = Client('78.91.37.16',9998)
     client.receive_message("dette er facka shit")
     while True:
-        msg = raw_input("Send Message \n")
+        msg = raw_input(">")
         client.send_payload(msg)
 

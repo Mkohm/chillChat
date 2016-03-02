@@ -24,20 +24,26 @@ class ClientHandler(SocketServer.BaseRequestHandler):
         self.port = self.client_address[1]
         self.connection = self.request
 
+        print  self.ip +" is now connected"
+
+
         dict[self.ip] = self.connection
-        for key,values in dict.items():
-            print str(key) + ": " + str(values)
+        msg = self.ip +" is now connected"
+        for key,value in dict.items():
+                    if key != self.ip:
+                        value.send(msg)
 
 
         # Loop that listens for messages from the client
         while True:
             received_string = self.connection.recv(4096)
             if received_string != "" or not received_string == None:
-                print self.ip + ": " + received_string
-                self.connection.send("SERVER: "+received_string)
+                msg = self.ip + ": " + received_string
+                print msg
+                msg_ip = self.ip
                 for key,value in dict.items():
-                    value.send("Back: "+received_string)
-
+                    if key != msg_ip:
+                        value.send(msg)
 
 
             # TODO: Add handling of received payload from client
