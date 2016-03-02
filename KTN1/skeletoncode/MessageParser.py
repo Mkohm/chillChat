@@ -1,5 +1,4 @@
 
-
 class MessageParser():
     payload = None
 

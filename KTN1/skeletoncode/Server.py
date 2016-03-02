@@ -6,6 +6,8 @@ Variables and functions that must be used by all the ClientHandler objects
 must be written here (e.g. a dictionary for connected clients)
 """
 
+dict= {}
+
 class ClientHandler(SocketServer.BaseRequestHandler):
     """
     This is the ClientHandler class. Everytime a new client connects to the
@@ -22,17 +24,25 @@ class ClientHandler(SocketServer.BaseRequestHandler):
         self.port = self.client_address[1]
         self.connection = self.request
 
+        dict[self.ip] = self.connection
+        for key,values in dict.items():
+            print str(key) + ": " + str(values)
+
+
         # Loop that listens for messages from the client
         while True:
             received_string = self.connection.recv(4096)
             if received_string != "" or not received_string == None:
-                print received_string
+                print self.ip + ": " + received_string
+                self.connection.send("SERVER: "+received_string)
 
-            
+
+
             # TODO: Add handling of received payload from client
 
 
 class ThreadedTCPServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
+
     """
     This class is present so that each client connected will be ran as a own
     thread. In that way, all clients will be served by the server.
@@ -49,8 +59,10 @@ if __name__ == "__main__":
     No alterations are necessary
     """
     HOST, PORT = '78.91.37.16', 9998
-    print 'Server running...'
 
+
+    print 'Server running...'
     # Set up and initiate the TCP server
+
     server = ThreadedTCPServer((HOST, PORT), ClientHandler)
     server.serve_forever()
