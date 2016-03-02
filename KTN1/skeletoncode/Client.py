@@ -11,15 +11,17 @@ class Client:
     host = None
     running = None
     socket = None
+    username = None
 
     # This method is run when creating a new Client object
-    def __init__(self, host, server_port):
+    def __init__(self, host, server_port,username):
         # Set up the socket connection to the server
         # TODO: Finish init process with necessary code
         self.connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server_port = server_port
         self.host = host
         self.running = True
+        self.username = username
         self.run()
 
     def run(self):
@@ -41,16 +43,15 @@ class Client:
         pass
 
     def sendData(self,data):
+        data = self.username+": "+ data
         self.connection.send(data)
-
-
 
         # More methods may be needed!
 
 
 # This is the main method and is executed when you type "python Client.py"
 if __name__ == '__main__':
-    client = Client('localhost', 9998)
+    client = Client('78.91.37.16',9998,"Markus")
     while True:
         msg = raw_input("send din melding")
         client.sendData(msg)
