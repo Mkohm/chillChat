@@ -40,6 +40,10 @@ class Client:
         # TODO: Handle sending of a payload
         pass
 
+    def sendData(self,data):
+        self.connection.send(data)
+
+
 
         # More methods may be needed!
 
@@ -47,3 +51,6 @@ class Client:
 # This is the main method and is executed when you type "python Client.py"
 if __name__ == '__main__':
     client = Client('localhost', 9998)
+    while True:
+        msg = raw_input("send din melding")
+        client.sendData(msg)

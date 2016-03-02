@@ -25,6 +25,9 @@ class ClientHandler(SocketServer.BaseRequestHandler):
         # Loop that listens for messages from the client
         while True:
             received_string = self.connection.recv(4096)
+            if received_string != "" or not received_string == None:
+                print received_string
+
             
             # TODO: Add handling of received payload from client
 
