@@ -1,17 +1,8 @@
-server startserver(); - allow incoming connections
-client run();
-client connect();
+First, we need to start the server with startserver();
+On the server side, it has to allow all incoming connections.
 
-server clienthandler();
-server listen for request();
+Then the client can start and connect to the server. This is done with run() and connect().
 
-client reads user input
-client create JSON object from user input
-client send json object
-
-clienthandler receives message
-clienthandler sends response to client
-messagereceiver sends json object to client
-messageparser parses the response (if neccessary)
-(messageparser sends message as a string to receiving lient)
-receiving client prints message
+The clienthandler waits for the user to type a message. When the clienthandler receives the message from the user, 
+the message is parsed into json and sent to the server. The server reads the json and sends the message to the correct user by reading the ip-adress, 
+and is forwarding the message. The receiving client reads the json and is printing the message.
