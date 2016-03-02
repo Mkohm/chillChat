@@ -3,4 +3,6 @@ On the server side, it has to allow all incoming connections.
 
 Then the client can start and connect to the server. This is done with run() and connect().
 
-The clienthandler waits for the user to type a message. When the clienthandler receives the message from the user, the message is parsed into json and sent to the server. The server reads the json and sends the message to the correct user by reading the ip-adress, and is forwarding the message. The receiving client reads the json and is printing the message.
+The clienthandler waits for the user to type a message. When the clienthandler receives the message from the user, 
+the message is parsed into json and sent to the server. The server reads the json and sends the message to the correct user by reading the ip-adress, 
+and is forwarding the message. The receiving client reads the json and is printing the message.
