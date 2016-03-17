@@ -30,6 +30,7 @@ class Client:
         self.running = False
         pass
 
+
     def receive_message(self, message):
         # TODO: Handle incoming message
         msg_receiver = MessageReceiver(client, self.connection)
@@ -38,6 +39,9 @@ class Client:
 
     def send_payload(self, data):
         # TODO: Handle sending of a payload
+
+
+
         self.connection.send(data)
 
 
@@ -45,7 +49,7 @@ class Client:
 
 # This is the main method and is executed when you type "python Client.py"
 if __name__ == '__main__':
-    client = Client('78.91.37.16',9998)
+    client = Client('78.91.17.166',9998)
     client.receive_message("dette er facka shit")
     while True:
         msg = raw_input(">")
