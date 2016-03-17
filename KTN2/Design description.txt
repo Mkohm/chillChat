@@ -1,0 +1,5 @@
+Vi har en klient som tar seg av å interagere med brukeren, sende meldinger til serveren med det brukeren vil, og å parse meldinger som kommer fra serveren. For dette bruker den to tråder. En tråd tar seg av input fra brukeren og sender dette til serveren, den andre parser meldinger som kommer fra serveren og viser svaret til brukeren.
+
+Vi bruker en egen klasse for å parse meldinger fra serveren. Denne har en liste med mulige svar, og parser meldingene avhengig av hvilke type melding det er.
+
+På server-siden bruker vi en TCP-server som lager en ny tråd for hver klient som kobler seg på. Denne tråden kjører i ClientHandler klassen som håndterer meldingene som kommer fra de forskjellige klientene, og svarer på disse.

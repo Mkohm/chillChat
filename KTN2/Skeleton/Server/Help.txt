@@ -1,0 +1,9 @@
+The following commands are available:
+
+-> Login <username>	Log in to chat
+-> Logout		Log out 
+-> Msg <message>	Send a message
+-> Names		Get a list of participants
+-> Help			This list
+
+Logout, msg and names requires you to be logged in!
