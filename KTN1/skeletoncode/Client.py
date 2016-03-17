@@ -6,7 +6,7 @@ from MessageParser import MessageParser
 # This is the chat client class
 class Client:
     connection = None
-    server_port = 0
+    server_port = 9996
     host = None
     running = None
 
@@ -51,3 +51,9 @@ if __name__ == '__main__':
         msg = raw_input(">")
         client.send_payload(msg)
 
+
+#login <username> - log in with the given username
+#logout - log out
+#msg <message> - send message
+#names - list users in chat
+#help - view help text
