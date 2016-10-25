@@ -1,3 +1,3 @@
 # chillChat
 
-Rutta chatt for de rutta
+Chat client skrevet i faget kommunikasjon, tjenester, nett
